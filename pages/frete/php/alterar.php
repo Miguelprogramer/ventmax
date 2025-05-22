@@ -37,7 +37,8 @@ if (isset($_GET["alterar"])) {
     <meta charset="utf-8">
     <title>Alterar Frete</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="../../../styles/php.css">
+    <link rel="shortcut icon" href="../../../assets/favicon.png" type="image/x-icon">
 </head>
 <body>
     <h2>Alterar Dados do Frete</h2>

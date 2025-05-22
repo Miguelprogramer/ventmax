@@ -5,6 +5,7 @@
         <title>Cadastro de Formas de Pagamento</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../styles/php.css">
+        <link rel="shortcut icon" href="../../../assets/favicon.png" type="image/x-icon">
     </head>
     <body>
         <h2>Cadastro de Formas de Pagamento</h2>
@@ -14,6 +15,7 @@
             <tr>
                 <th>Forma de Pagamento</th>
                 <th>Taxa</th>
+                <th>Ações</th>
             </tr>
         
         <?php 
@@ -28,13 +30,16 @@
             }
             // Carregar consulta de registros
             while ($tabela = $query->fetch_assoc()) {
+                $forma = htmlspecialchars($tabela['forma']);
+                $taxa = htmlspecialchars($tabela['taxa']);
+                $formaUrl = urlencode($tabela['forma']);
                 echo "
                 <tr>
-                    <td align='center'>{$tabela['forma']}</td>
-                    <td align='center'>{$tabela['taxa']}</td> 
+                    <td align='center'>{$forma}</td>
+                    <td align='center'>{$taxa}</td> 
                     <td width='120'>
-                        <a href='./php/excluir.php?excluir={$tabela['forma']}'>[excluir]</a>
-                        <a href='./php/alterar.php?alterar={$tabela['forma']}'>[alterar]</a>
+                        <a href='./php/excluir.php?excluir={$formaUrl}'>[excluir]</a>
+                        <a href='./php/alterar.php?alterar={$formaUrl}'>[alterar]</a>
                     </td>
                 </tr>";
             }

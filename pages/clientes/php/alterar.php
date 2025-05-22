@@ -50,6 +50,7 @@ if (isset($_GET["alterar"])) {
     <title>Alterar Cliente</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="shortcut icon" href="../../../assets/favicon.png" type="image/x-icon">
 </head>
 <body>
     <h2>Alterar Dados do Cliente</h2>

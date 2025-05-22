@@ -5,6 +5,7 @@
     <title>Adicionar Cliente</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../../styles/php.css" />
+    <link rel="shortcut icon" href="../../../assets/favicon.png" type="image/x-icon">
 </head>
 <body>
     <h2>Adicionar Dados do Cliente</h2>

@@ -5,6 +5,7 @@
     <title>Excluir Forma de Pagamento</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../../styles/php.css" />
+    <link rel="shortcut icon" href="../../../assets/favicon.png" type="image/x-icon">
 </head>
 <body> 
     <?php
@@ -15,8 +16,8 @@ if (isset($_GET['excluir'])) {
     if (empty($forma)) {
         echo "<p style='color:red;'>Erro: Forma de pagamento inválida!</p>";
     } else {
-        $stmt = $mysqli->prepare("DELETE FROM tb_fpagto WHERE forma = ?");
-        $stmt->bind_param("sd", $forma);
+        $stmt = $mysqli->prepare("DELETE FROM tb_pagto WHERE forma = ?");
+        $stmt->bind_param("s", $forma);
         $stmt->execute();
 
         if ($stmt->affected_rows > 0) {

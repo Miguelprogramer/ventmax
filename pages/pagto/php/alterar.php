@@ -3,16 +3,14 @@ require("conecta.php");
 
 $forma = "";
 $taxa = "";
+$formaAntiga = "";
 
-// Verifica se o ID foi passado na URL e é válido
+// Verifica se o parâmetro foi passado na URL
 if (isset($_GET["alterar"])) {
-    if ($forma === false || $iforma <= 0) {
-        exit("<p style='color:red;'>Erro: ID inválido!</p>");
-    }
-
+    $formaAntiga = $_GET["alterar"];
     // Usa Prepared Statements para evitar SQL Injection
-    $stmt = $mysqli->prepare("SELECT forma, taxa FROM tb_fpagto WHERE forma = ?");
-    $stmt->bind_param("s", $forma);
+    $stmt = $mysqli->prepare("SELECT forma, taxa FROM tb_pagto WHERE forma = ?");
+    $stmt->bind_param("s", $formaAntiga);
     $stmt->execute();
     $result = $stmt->get_result();
     
@@ -20,11 +18,9 @@ if (isset($_GET["alterar"])) {
         $tabela = $result->fetch_assoc();
         $forma = htmlspecialchars($tabela["forma"]);
         $taxa = htmlspecialchars($tabela["taxa"]);
-
     } else {
-        exit("<p style='color:red;'>Erro: Cliente não encontrado!</p>");
+        exit("<p style='color:red;'>Erro: Forma de pagamento não encontrada!</p>");
     }
-
     $stmt->close();
 }
 ?>
@@ -35,7 +31,8 @@ if (isset($_GET["alterar"])) {
     <meta charset="utf-8">
     <title>Alterar Forma de Pagamento</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../../../styles/php.css" />
+    <link rel="shortcut icon" href="../../../assets/favicon.png" type="image/x-icon">
 </head>
 <body>
     <h2>Alterar Forma de Pagamento</h2>
@@ -57,14 +54,15 @@ if (isset($_POST["botao"])) {
     // Captura e valida os dados do formulário
     $forma  = trim($_POST["forma"]);
     $taxa = trim($_POST["taxa"]);
+    $formaAntiga = isset($_GET["alterar"]) ? $_GET["alterar"] : $forma;
 
     if (empty($forma) || empty($taxa)) {
         exit("<p style='color:red;'>Erro: Preencha todos os campos corretamente.</p>");
     }
 
     // Usa Prepared Statements para evitar SQL Injection
-    $stmt = $mysqli->prepare("UPDATE tb_fpagto SET forma = ?, taxa = ? WHERE forma = ?");
-    $stmt->bind_param("ss", $forma, $taxa);
+    $stmt = $mysqli->prepare("UPDATE tb_pagto SET forma = ?, taxa = ? WHERE forma = ?");
+    $stmt->bind_param("sss", $forma, $taxa, $formaAntiga);
     $stmt->execute();
 
     if ($stmt->affected_rows > 0) {
