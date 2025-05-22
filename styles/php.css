@@ -1,0 +1,116 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f7fa;
+    margin: 30px;
+    color: #333;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: bolder;
+    color: #0045ad;
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 69, 173, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #0045ad;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+input[type="submit"] {
+    border: 2px solid #3b83f0;
+    border-radius: 5px;
+    padding: 12px 24px;
+    background-color: #0045ad;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #3b83f0;
+}
+
+p {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #0045ad;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.title {   
+    font-family: 'Inter', sans-serif;
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.buttons {
+    margin-bottom: 25px;
+}
+
+.add button {
+    border: 2px solid #3b83f0;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #0045ad;
+    color: white;
+    font-size: large;
+}
+
+.pesq button {
+    border: 2px solid #ffa86e;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #ff6600;
+    color: white;
+    font-size: large;
+}
+
+table {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+button {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #0045ad;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 5%;
+}
+
+button:hover {
+    background-color: #3b83f0;
+}
